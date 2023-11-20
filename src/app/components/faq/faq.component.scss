@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    width: 900px;
+  }
+
+
+.faq-background{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 18px 0;
+
+
+}
+.faq-question{
+  background-color: #0a0746;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 10px 18px;
+  box-shadow: 0px 8px 10px 0 grey;
+  border: 1px outset #00517C;
+
+}
+.faq-question h2{
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  word-spacing: 2px;
+}
+.faq-question img{
+    height: 20px;
+    width: 18px;
+    filter: invert(0.9);
+}
+
+.faq-answer{
+  background-color: #0a074682;
+    height: 100px;
+    width: 96%;
+    border-radius: 0 0  8px 8px;
+   padding: 10px 15px;
+
+}
+.faq-answer p{
+  font-size: 18px;
+  width: fit-content;
+  line-height: 25px;
+  word-spacing: 1px;
+  letter-spacing: 0.3px;
+  padding: 2px 10px;
+  color: #fff;
+}
+.faq-answer {
+    overflow: hidden; 
+  }
+  
+  .faq-answer.ng-animating {
+    transition: height 300ms, opacity 300ms;
+  }

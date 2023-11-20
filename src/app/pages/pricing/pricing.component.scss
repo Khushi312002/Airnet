@@ -1,0 +1,101 @@
+*{
+    margin:  0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+main{
+    margin:20px 80px;
+}
+.pricing-col-main{
+    display: flex;
+    justify-content: center;
+}
+.pricing-col-inner{
+    border-radius: 10px;
+    background-color: #00517c3b;
+    box-shadow: -2px -2px 10px 0 #80808057, 2px 2px 10px 0 #80808057;
+}
+
+.pricing-heading{
+    margin-top: 100px;
+
+    text-align: center;
+}
+.pricing-heading h1{
+    font-size: 50px;
+    color: #000;
+    word-spacing: 15px;
+    letter-spacing: 0.1px;
+}
+.pricing-heading h3{
+    font-size: 19px;
+    letter-spacing: 0.2px;
+    font-weight: 500;
+    color: #000000ba;
+    font-family: cursive;
+}
+
+.pricing-heading h5{
+    font-size: 11px;
+}
+
+
+
+.pricing-main{
+    margin-top: 50px;
+}
+.pricing-card{
+    font-size: 15px;
+    height: 120px;
+    width: 230px;
+    display: flex;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.pricing-card h3{
+    color: #000;
+    font-size: 22px;
+    line-height: 27px;
+}
+.pricing-card h5{
+    color: #0000008f;;
+    font-size: 12px;
+}
+.pricing-block{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgb(0 0 0 / 15%);
+    flex-direction: column;
+    padding: 1px 14px;
+
+}
+.pricing-block h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #201d33;
+    font-weight: 600;
+
+}
+
+.pricing-block h3{
+    font-size: 14px;
+    color: #232121;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+ .correct-img{
+    height: 40px;
+}
+.cancel-img{
+    height: 32px;   
+}
