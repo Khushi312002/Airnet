@@ -3,15 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  firebaseConfig: {
-    apiKey: "AIzaSyD1nIKlN1izIyKoVU4lGo8aPjX6WWRebdU",
-    authDomain: "boardthetrip-bc9f0.firebaseapp.com",
-    databaseURL: "https://boardthetrip-bc9f0.firebaseio.com",
-    projectId: "boardthetrip-bc9f0",
-    storageBucket: "boardthetrip-bc9f0.appspot.com",
-    messagingSenderId: "287266333939",
-    appId: "1:287266333939:web:46a385dc896a43bed48386",
-    measurementId: "G-L6B971XRV8"
+  firebase:{
+    apiKey: "AIzaSyCb3AywUTRcqLEhUegMd_UeJxQiBPl9DJY",
+    authDomain: "routemaestrodemo.firebaseapp.com",
+    projectId: "routemaestrodemo",
+    storageBucket: "routemaestrodemo.appspot.com",
+    messagingSenderId: "388887504479",
+    appId: "1:388887504479:web:1a4afc98902daa539a1dea"
   },
   production: false
 };

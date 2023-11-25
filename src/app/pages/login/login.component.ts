@@ -1,92 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { collection, doc, getDocs, query, where, Firestore, getDoc } from '@angular/fire/firestore';
-import { AuthService } from 'src/app/Services/auth.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { ToastrService } from 'ngx-toastr';
+
+import {FormsModule}from '@angular/forms'
+import { Route, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/shared/auth/authentication.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
-  phoneNumber!: string;
-  otp!: string;
-  verificationInProgress = false;
-  active = 1;
+  email:string ='';
+  password:string="";
 
-  constructor(
+  constructor(private auth:AuthenticationService, private router:Router) { }
 
-    private authService: AuthService,
-    private router: Router,
-    private db: Firestore,
-    private toastr: ToastrService,
-  ) { }
+  ngOnInit(): void {
 
-  ngOnInit(): void { }
-
-  onOtpChange(event: any) {
-    const otpValue: string = event;
-    if (otpValue.length === 6) {
-      console.log('OTP is complete:', otpValue);
-      this.otp = otpValue;
-      // const nextSection = this.elementRef.nativeElement.querySelector('#NatureOfTrip');
-      // nextSection.scrollIntoView({ behavior: 'smooth' });
-      // Perform any additional actions with the complete OTP
+    if(this.auth.isLoggedIn()){
+      this.router.navigate(['pricing']);
     }
   }
 
-  sendOtp() {
-    this.verificationInProgress = true;
-    this.authService.sendOtp(this.phoneNumber)
-      .then((result) => {
-        console.log(result);
-        console.log('OTP sent successfully');
-        this.verificationInProgress = false
-        this.router.navigate(['/otp']);
-        this.active = 2;
-      })
-      .catch((error) => {
-        this.verificationInProgress = false
-        console.error('Error sending OTP:', error);
-      })
-  }
+  login(){
 
-  verifyOtp() {
-    this.verificationInProgress = true;
-    this.authService.verifyOtp(this.otp)
-      .then((user) => {
-        console.log('OTP verified successfully for user:', user);
-        this.verificationInProgress = false;
-        this.router.navigate(['/destination']);
-      })
-      .catch((error) => {
-        console.error('Error verifying OTP:', error);
-        this.verificationInProgress = false;
-      })
-      .finally(() => {
-      });
-  }
-
-
-  async loginWithPhoneNumber(phoneNumber: string): Promise<any> {
-    // try {
-
-    const docRef = doc(this.db, "numbers", "numbers");
-    const phoneNumbersList: string[] = ((await getDoc(docRef)).data() ?? {})['phoneNumbersList'] ?? [];
-    const numberExists = phoneNumbersList.some((element) => element === phoneNumber);
-
-    if (numberExists) {
-      this.sendOtp();
-    } else {
-      this.toastr.error('Number does not exist.', 'Warning')
-      throw new Error("Number does not exist");
-      // this.snackbar.open("Something went wrong", "", {
-      //   duration: 2500,
-      //   panelClass: ["alert", "alert-danger"],
-      // });  
+    if(this.email==''){
+      alert("email missing");
+      return
     }
+
+
+    if(this.password==''){
+      alert("password missing");
+      return
+    }
+
+    this.auth.login(this.email,this.password);
+    this.email='';
+    this.password='';
+
   }
+
+  signInWithGoogle(){
+
+    this.auth.signInWithGoogle()
+  }
+
 }

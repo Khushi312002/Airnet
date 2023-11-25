@@ -2,7 +2,7 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light navbar-custom" >
         <a class="navbar-brand navbar-leftside" href="#">
-          <img src="../../../assets/img/brand/headerLogo.png" alt="RouteMaestro" class="navbar-logo">
+          <img src="../../../assets/img/brand/bluelogo.png" alt="RouteMaestro" class="navbar-logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -22,9 +22,16 @@
             <li class="nav-item navbar-listitem">
                 <a class="nav-link" href="/contact-us">Contact Us</a>
               </li>
-              <li class="nav-item  navbar-listitem">
-                <button class="btn-login">Login</button>
+              <li *ngIf="checkStatus(); else loginBtn " class="nav-item  navbar-listitem">
+                <button class="btn-signout" (click)="signout()" >SignOut</button>
               </li>
+              <ng-template #loginBtn >
+
+                <li  class="nav-item  navbar-listitem" >
+                  <button class="btn-login" (click)="navigateToLogin()" >Login</button>
+                </li>
+              </ng-template >
+              
            
           </ul>
          

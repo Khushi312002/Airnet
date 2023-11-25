@@ -30,6 +30,9 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { PricingComponent } from './pages/pricing/pricing.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { FormsModule } from '@angular/forms';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   imports: [
@@ -44,11 +47,10 @@ import { PricingComponent } from './pages/pricing/pricing.component';
     RouterModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideFirestore(() => getFirestore()),
-    provideAuth(() => initializeAuth(getApp(), {
-      persistence: browserSessionPersistence
-    })),
+    AngularFireModule.initializeApp(environment.firebase),
+    FormsModule,
+    NgbModule,
+    AngularFirestoreModule
   ],
   declarations: [
     AppComponent,

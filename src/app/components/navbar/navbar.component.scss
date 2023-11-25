@@ -20,7 +20,7 @@
     a{
       font-size: 20px;
       text-decoration: none;
-      color: #120c8b;
+      color: #063E68;
       font-weight: 500;
     }
   }
@@ -38,7 +38,7 @@
  
 .btn-login{
     border-radius: 5px;
-    background-color: #0098a6;
+    background-color: #bf7408;
     color: #fff;
     font-size: 15px;
     letter-spacing: 1.3px;
@@ -49,10 +49,22 @@
     width: 68px;
     border: 0;
 }
+.btn-signout{
+  border-radius: 5px;
+  background-color: #bf7408;
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 1.3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 75px;
+  border: 0;
+}
 
 .btn-login:hover{
-  background-color: #004266;
-  box-shadow: 5px 5px grey;
+  background-color: #975a05;
 }
 .navbar-collapse{
   display: flex !important;

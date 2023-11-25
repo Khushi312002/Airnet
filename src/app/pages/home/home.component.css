@@ -25,17 +25,26 @@
 .landing-left{
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 20px;
     height: 100%;
     justify-content: center;
 }
 .landing-left h1{
-    font-size: 44px;
+    font-size: 54px;
     color: #000;
+    text-transform: capitalize;
 
+}
+
+.landing-left p{
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #000000b9   ;
 }
 .landing-right img {
     height: 410px;
+    
 
 }
 .main-btns-flexbox{
@@ -47,7 +56,7 @@
 
 .btn-main-demo{
 
-    background-color: #0a0746;
+    background-color: #063E68;
     border-radius: 8px;
     border-style:none;
     box-sizing: border-box;
@@ -64,17 +73,18 @@
     text-align: center;
     text-decoration: none;
 }
-.btn-main-chat{
+.btn-main-tryNow{
     
-    background-color: #4888aa;
+    background-color: #bf7408;
     border-radius: 8px;
     border-style:none;
     box-sizing: border-box;
-    color: #003857;
+    color: #fff;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 500;
-    height: 40px;
+    height: 56px;
+    width: 202px;
     line-height: 20px;
     margin: 0;
     outline: none;
@@ -84,10 +94,10 @@
 }
 
 .btn-main-demo:hover, .btn-main-demo:focus{
-    background-color: #002a41;
+    background-color: #022139;
 }
-.btn-main-chat:hover, .btn-main-chat:focus{
-    background-color: #002a41;
+.btn-main-tryNow:hover, .btn-main-chat:focus{
+    background-color: #9f5f04;
     color: #fff;
 }
 
@@ -156,57 +166,34 @@
 
 .all-steps-flexbox{
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     padding: 20px;
 }
-.step-flexbox{
+
+.steps-order{
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
+    width: 100%;
+    justify-content: space-around;
+}
+.steps-order h2{
+    font-size: 20px;
 }
 
-
-.steps{
-    display: flex;
-    height: 33px;
-    width: 74px;
-    border-radius: 7px;
-    justify-content: center;
-    align-items: center;
-}
-.steps h2{
-    font-size: 18px;
-    color: #000;
-}
 .steps-description{
-    text-transform: uppercase;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
+    width: 100%;
 }
-
-.steps-description img{
-   
-    filter: drop-shadow(2px 4px 6px black);
-}
-
-.step-flexbox p{
-    text-align: center;
+.steps-description p{
     font-size: 14px;
-    word-spacing: 1px;
-    letter-spacing: 1px;
-    line-height: 18px;
-    padding: 1px 12px;
-    text-transform: none;
-    color: #000;
-    font-weight: 500;
-
+    font-weight: 400;
+    word-spacing: 2px;
+    line-height: 19px;
+    text-align: center;
+    width: 270px;
 }
-
 
 
 
@@ -232,6 +219,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 5px;
+    text-align: center;
 }
 .stats-division img{
     height: 50px;
@@ -246,6 +235,7 @@
 .stats-division div p{
    color: #fff;
    text-transform: uppercase;
+   font-size: 20px;
 
 }
 

@@ -1,24 +1,38 @@
-<div class="container-fluid d-flex flex-column justify-content-center align-items-center text-center" style="background-color: #339199; height: 100vh;">
-  <div class="row">
-    <div class="col">
-      <div class="card text-start p-md-5" style="border-radius: 9px;">
-        <div class="card-body" style="font-family: 'Lato', sans-serif; display: flex; flex-direction: column; justify-content: center;">
-          <h3 class="card-title mb-5 pb-2" style="text-align: center;">Enter <span style="color: #339199;"> mobile number </span>to personalize your trip</h3>
-          <div class="form-group mt-2 my-3">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text border-end country-code">+91</span>
-              </div>
-              <input type="text" class="form-control" id="phoneNumber" aria-describedby="emailHelp" placeholder="Enter your mobile number" [(ngModel)]="phoneNumber" />
-            </div>
-          </div>
-          <button type="button" id="signInButton" class="btn text-white mt-3 p-3" style="background-color: #339199; border-radius: 12px;" (click)="loginWithPhoneNumber(phoneNumber)" [disabled]="verificationInProgress">Get OTP</button>
-          <div id="recaptcha-container"></div>
-          <div class="warning-message" style="display: none;"> Number does not exist. Please register first.</div>
+<main >
+  <h1>
+    Login 
+  </h1>
+    <form class="login-form">
+
+        <!-- Email input -->
+        <div class="input-field">
+          <label class="form-label" for="email">Email </label>
+          <input type="email" name="email" id="email" class="form-control "  placeholder="Enter your Email" [(ngModel)]="email" />
+    
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+      
+      
+        <!-- Password input -->
+        <div class="input-field">
+          <label class="form-label" for="password">Password </label>
+          <input type="password" name="password" id="password" class="form-control "  placeholder="Enter your password" [(ngModel)]="password"/>
+    
+        </div>
+      
+      
+      
+        <!-- Submit button -->
+        <button type="button" class="btn btn-primary btn-block " (click)="login()" >Login</button>
+      
+        <!-- Register buttons -->
+        <div class="text-center">
+          <p>Not a member? <a href="/register">Register</a></p>
+          <p>or sign up with:</p>
 
-
+          <button class="google-login-btn" (click)="signInWithGoogle()" type="button">
+            <h3>Login with Google</h3>
+            <img src="../../../assets/img/brand/search_281764.png" alt="google-image" style="height: 30px;">
+          </button>
+          </div>
+      </form>
+</main>
