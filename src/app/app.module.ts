@@ -27,12 +27,13 @@ import { TermCondComponent } from './pages/term-cond/term-cond.component';
 import { ShippingComponent } from './pages/shipping/shipping.component';
 import { RefundComponent } from './pages/refund/refund.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
-import { HomeComponent } from './pages/home/home.component';
-import { FaqComponent } from './components/faq/faq.component';
 import { PricingComponent } from './pages/pricing/pricing.component';
-import { AngularFireModule } from '@angular/fire/compat';
 import { FormsModule } from '@angular/forms';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { FooterComponent } from './components/footer/footer.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { AngularFireModule } from '@angular/fire';
+import {AngularFire} from "@angular/fire/auth"
 
 @NgModule({
   imports: [
@@ -47,12 +48,13 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     RouterModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
     NgbModule,
     AngularFirestoreModule
+
   ],
   declarations: [
+    AngularFireModule.initializeApp(environment.firebase),
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
@@ -63,6 +65,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     RefundComponent,
     ContactUsComponent,
     PricingComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], 
   providers: [AuthService, DatePipe],

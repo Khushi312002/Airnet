@@ -233,6 +233,326 @@
             </div>
         </div>
     </div>
-    
+
+
+    <!-- ////////////////////////////////////////////////// -->
+
+    <div class="all-plans-smaller-screens" >
+
+        <!-- free plan -->
+        <div class="plan">
+            <div class="plan-brief" (click)="toggleAnswer1()"> 
+                <h2>Free</h2>
+
+            </div>
+            <div class=" plan-inclusions" *ngIf="isAnswerVisible1" [@fadeInOut]>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>Agency CRM Software</h2>
+                        <h3>Enquiry & Branch Management</h3>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>-</p>
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>Create  your own professional itineraries</h2>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>Unlimited</p>
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>generate customized ai itineraries</h2>
+                        <h3>• Highly Convertible Itineraries</h3>
+                        <h3>• Use Your Own Company Logo</h3>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>3</p>
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>GENERATE REAL TIME PACKAGES</h2>
+                        <h3>• 10Lakh + Hotels</h3>
+                        <h3>
+                            • 17+ Airlines</h3>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>-</p>
+                    </div>                    
+
+                </div> 
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>ONLINE PAYMENT COLLECTION FACILITY</h2>
+                       
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>-</p>
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>REAL TIME AVAILABILTY & INSTANT BOOKING</h2>
+                        
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>-</p>
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>EXCLUSIVE INVENTORY RATES</h2>
+                        <h3>
+                            • 0% Platform Commission On Booking</h3>
+                            <h3> • Agent Coommissionable Rates</h3>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>-</p>
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>DEMOGRAPHICALLY UNRESTRICTED SERVICE AREA</h2>
+                        
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>-</p>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- basic routeMaestro -->
+        <div class="plan">
+            <div class="plan-brief" (click)="toggleAnswer2()"> 
+                <h2>Basic RouteMaestro</h2>
+                    <h4> ₹5,500/MONTH/USER </h4>
+                    <button type="button" class="btn btn-primary p-1 buyNow-btn" (click)="navigationToCheckout()">Buy Now</button>
+
+            </div>
+            <div class=" plan-inclusions" *ngIf="isAnswerVisible2" [@fadeInOut]>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>Agency CRM Software</h2>
+                        <h3>Enquiry & Branch Management</h3>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <img src="../../../assets/img/brand/check-mark_5290058.png" alt="">
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>Create  your own professional itineraries</h2>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>25</p>
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>generate customized ai itineraries</h2>
+                        <h3>• Highly Convertible Itineraries</h3>
+                        <h3>• Use Your Own Company Logo</h3>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>25</p>
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>GENERATE REAL TIME PACKAGES</h2>
+                        <h3>• 10Lakh + Hotels</h3>
+                        <h3>
+                            • 17+ Airlines</h3>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>-</p>
+                    </div>                    
+
+                </div> 
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>ONLINE PAYMENT COLLECTION FACILITY</h2>
+                       
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>-</p>
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>REAL TIME AVAILABILTY & INSTANT BOOKING</h2>
+                        
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>-</p>
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>EXCLUSIVE INVENTORY RATES</h2>
+                        <h3>
+                            • 0% Platform Commission On Booking</h3>
+                            <h3> • Agent Coommissionable Rates</h3>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>-</p>
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>DEMOGRAPHICALLY UNRESTRICTED SERVICE AREA</h2>
+                        
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>-</p>
+                    </div>                    
+                </div>
+            </div>
+
+        </div>
+
+        <!-- routeMaestro Pro -->
+        <div class="plan">
+            <div class="plan-brief" (click)="toggleAnswer3()"> 
+                <h2>RouteMaestro Pro</h2>
+                <h4> 
+                    ₹ 10,500/MONTH/USER </h4>
+                    <button type="button" class="btn btn-primary p-1 buyNow-btn" (click)="navigationToCheckout()">Buy Now</button>
+
+            </div>
+            <div class=" plan-inclusions" *ngIf="isAnswerVisible3"  [@fadeInOut]>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>Agency CRM Software</h2>
+                        <h3>Enquiry & Branch Management</h3>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <img src="../../../assets/img/brand/check-mark_5290058.png" alt="">
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>Create  your own professional itineraries</h2>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>Unlimited</p>
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>generate customized ai itineraries</h2>
+                        <h3>• Highly Convertible Itineraries</h3>
+                        <h3>• Use Your Own Company Logo</h3>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>Unlimited</p>
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>GENERATE REAL TIME PACKAGES</h2>
+                        <h3>• 10Lakh + Hotels</h3>
+                        <h3>
+                            • 17+ Airlines</h3>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <p>Unlimited</p>
+                    </div>                    
+
+                </div> 
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>ONLINE PAYMENT COLLECTION FACILITY</h2>
+                       
+                    </div>
+                    <div class="plan-specific-answer">
+                       <img src="../../../assets/img/brand/check-mark_5290058.png" alt="">
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>REAL TIME AVAILABILTY & INSTANT BOOKING</h2>
+                        
+                    </div>
+                    <div class="plan-specific-answer">
+                        <img src="../../../assets/img/brand/check-mark_5290058.png" alt="">
+
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>EXCLUSIVE INVENTORY RATES</h2>
+                        <h3>
+                            • 0% Platform Commission On Booking</h3>
+                            <h3> • Agent Coommissionable Rates</h3>
+                    </div>
+                    <div class="plan-specific-answer">
+                        <img src="../../../assets/img/brand/check-mark_5290058.png" alt="">
+
+                    </div>                    
+
+                </div>
+                <div class="plan-description" >
+
+                    <div class="plan-specific-heading">
+                        <h2>DEMOGRAPHICALLY UNRESTRICTED SERVICE AREA</h2>
+                        
+                    </div>
+                    <div class="plan-specific-answer">
+                        <img src="../../../assets/img/brand/check-mark_5290058.png" alt="">
+
+                    </div>                    
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 
 </main>
