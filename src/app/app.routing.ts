@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
-import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
 import { OtpComponent } from './pages/otp/otp.component';
 import { AuthGuard } from './Services/auth.guard';
 import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
@@ -19,14 +19,12 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { PricingComponent } from './pages/pricing/pricing.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'coming-soon',
-  //   canActivate: [AuthGuard],
-  //   pathMatch: 'full',
-  // },
-
-
+  {
+    path: '',
+    redirectTo: 'home',
+    canActivate: [AuthGuard],
+    pathMatch: 'full',
+  },
   {
     path: '',
     component: AdminLayoutComponent,
@@ -55,10 +53,10 @@ const routes: Routes = [
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'about-us',      component: AboutUsComponent },
   { path: 'pricing',  component:PricingComponent},
-
+  { path:'home',component:HomeComponent},
   {
     path: '**',
-    redirectTo: 'coming-soon'
+    redirectTo: 'home'
   }
 ];
 

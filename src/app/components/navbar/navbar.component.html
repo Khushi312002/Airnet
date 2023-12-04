@@ -1,43 +1,38 @@
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light navbar-custom" >
-        <a class="navbar-brand navbar-leftside" href="#">
-          <img src="../../../assets/img/brand/bluelogo.png" alt="RouteMaestro" class="navbar-logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse  " id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto navbar-rightside">
-            <li class="nav-item  navbar-listitem">
-              <a class="nav-link" href="/home">Home</a>
-            </li>
-            <li class="nav-item  navbar-listitem">
-              <a class="nav-link" href="/about-us">About Us</a>
-            </li>
-            <li class="nav-item navbar-listitem">
-              <a class="nav-link" href="/pricing">Pricing</a>
-            </li>
-            <li class="nav-item navbar-listitem">
-                <a class="nav-link" href="/contact-us">Contact Us</a>
-              </li>
-              <li *ngIf="checkStatus(); else loginBtn " class="nav-item  navbar-listitem">
-                <button class="btn-signout" (click)="signout()" >SignOut</button>
-              </li>
-              <ng-template #loginBtn >
-
-                <li  class="nav-item  navbar-listitem" >
-                  <button class="btn-login" (click)="navigateToLogin()" >Login</button>
-                </li>
-              </ng-template >
-              
-           
-          </ul>
-         
-        </div>
-      </nav>
-
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light navbar-custom" >
+      <a class="navbar-brand navbar-leftside" href="#">
+        <img src="../../../assets/img/brand/bluelogo.png" alt="RouteMaestro" class="navbar-logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
     
-</body>
+      <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto navbar-rightside">
+          <li class="nav-item  navbar-listitem">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <li class="nav-item  navbar-listitem">
+            <a class="nav-link" href="/about-us">About Us</a>
+          </li>
+          <li class="nav-item navbar-listitem">
+            <a class="nav-link" href="/pricing">Pricing</a>
+          </li>
+          <li class="nav-item navbar-listitem">
+              <a class="nav-link" href="/contact-us">Contact Us</a>
+            </li>
+            <li class="nav-item  navbar-listitem">
+              <a class="text-white" style="border-radius: 5px; background-color: #bf7408; padding: 10px" routerLink="/login" *ngIf="authService.userModel !== null" 
+              (click)="authService.signoutCurrentUser()">Sign Out</a>
+            </li>
+            <li class="nav-item  navbar-listitem">
+             <a class="btn-login text-white" style="border-radius: 5px; background-color: #bf7408; padding: 10px" *ngIf="authService.userModel === null" routerLink="/register"> Login </a>
+            </li>
+        </ul>
+       
+      </div>
+    </nav>
 
+  
+</body>

@@ -9,12 +9,11 @@ import { AuthGuard } from 'src/app/Services/auth.guard';
 import { CollectionsComponent } from 'src/app/pages/collections/collections.component';
 import { ComingSoonComponent } from 'src/app/pages/coming-soon/coming-soon.component';
 import { CheckoutComponent } from 'src/app/pages/checkout/checkout.component';
-import { HomeComponent } from 'src/app/pages/home/home.component';
 
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'generate-aI-itinerary',      component: DashboardComponent},
-    { path: 'dashboard/:id',  component: DashboardComponent },
+    { path: 'generate-aI-itinerary',  component: DashboardComponent },
+    { path: 'dashboard/:id',  component: DashboardComponent,canActivate: [AuthGuard] },
     { path: 'user-profile',   component: UserProfileComponent, canActivate: [AuthGuard]},
     { path: 'tables',         component: TablesComponent },
     { path: 'icons',          component: IconsComponent},
@@ -22,7 +21,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'maps',           component: MapsComponent },
     { path: 'collections',    component: CollectionsComponent },
     { path: 'generate-aI-itinerary/:responseId', component: DashboardComponent },
-    {path:'',component:HomeComponent},
-    {path:'home',component:HomeComponent},
 
 ];

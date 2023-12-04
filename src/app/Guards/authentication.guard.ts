@@ -6,19 +6,19 @@ import { AuthenticationService } from '../shared/auth/authentication.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationGuard implements CanActivate {
-  constructor(private auth:AuthenticationService , private router:Router){}
+export class AuthenticationGuard {
+  // constructor(private auth:AuthenticationService , private router:Router){}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot):boolean {
+  // canActivate(
+  //   route: ActivatedRouteSnapshot,
+  //   state: RouterStateSnapshot):boolean {
 
-      if(!this.auth.isLoggedIn()){
+  //     if(!this.auth.isLoggedIn()){
 
-          this.router.navigate(["login"]);
-          return false;
-      }
+  //         this.router.navigate(["login"]);
+  //         return false;
+  //     }
 
-    return this.auth.isLoggedIn();
-  }
+  //   return this.auth.isLoggedIn();
+  // }
 }

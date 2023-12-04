@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-import {FormsModule}from '@angular/forms'
+import {FormBuilder, FormGroup, FormsModule, Validators}from '@angular/forms'
 import { Route, Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/shared/auth/authentication.service';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,40 +10,35 @@ import { AuthenticationService } from 'src/app/shared/auth/authentication.servic
 })
 export class LoginComponent implements OnInit {
 
-  email:string ='';
-  password:string="";
+  loginForm: FormGroup = new FormGroup({});
+  errorMsg: string | undefined;
+  loader: boolean = false;
 
-  constructor(private auth:AuthenticationService, private router:Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+    ) { }
 
-  ngOnInit(): void {
-
-    if(this.auth.isLoggedIn()){
-      this.router.navigate(['pricing']);
+    ngOnInit(): void {
+      this.loginForm = this.fb.group({
+        email: [null, [ Validators.required, Validators.email ]],
+        password: [null, [Validators.required, Validators.minLength(6)]]
+      });
     }
-  }
-
-  login(){
-
-    if(this.email==''){
-      alert("email missing");
-      return
+  
+    loginUser(form: FormGroup): void {
+      delete this.errorMsg;
+      this.loader = true;
+      let formValues: { email: string; password: string } = { ...form.value };
+      
+      this.authService.loginUser(formValues)
+        .then(() => this.loader = false)
+        .catch((error) => {
+          this.loader = false;
+          this.errorMsg = error;
+          setTimeout(() => delete this.errorMsg, 5000)
+        });
     }
-
-
-    if(this.password==''){
-      alert("password missing");
-      return
-    }
-
-    this.auth.login(this.email,this.password);
-    this.email='';
-    this.password='';
-
-  }
-
-  signInWithGoogle(){
-
-    this.auth.signInWithGoogle()
-  }
 
 }

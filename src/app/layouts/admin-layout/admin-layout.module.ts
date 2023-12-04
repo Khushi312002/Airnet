@@ -18,8 +18,6 @@ import { DatePipe } from '@angular/common';
 import { CollectionsComponent } from '../../pages/collections/collections.component';
 import { CheckoutComponent } from '../../pages/checkout/checkout.component';
 import { AboutUsComponent } from '../../pages/about-us/about-us.component';
-import { HomeComponent } from 'src/app/pages/home/home.component';
-import { FaqComponent } from 'src/app/components/faq/faq.component';
 
 @NgModule({
   imports: [
@@ -43,11 +41,8 @@ import { FaqComponent } from 'src/app/components/faq/faq.component';
     CollectionsComponent,
     CheckoutComponent,
     AboutUsComponent,
-    HomeComponent,
-    FaqComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], 
-  providers: [DatePipe],
 })
 
 export class AdminLayoutModule {}

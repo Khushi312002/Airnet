@@ -1,40 +1,108 @@
-
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Firestore, collection, getDocs, query, where, getDoc, doc } from '@angular/fire/firestore';
-import { getAuth, RecaptchaVerifier, signInWithPhoneNumber, Auth, ConfirmationResult, UserCredential, user, onAuthStateChanged, } from '@angular/fire/auth';
+import { Firestore, collection, getDocs, query, where, getDoc, doc, Timestamp, setDoc, onSnapshot } from '@angular/fire/firestore';
+import { getAuth, RecaptchaVerifier, signInWithPhoneNumber, Auth, ConfirmationResult, UserCredential, user, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, } from '@angular/fire/auth';
+import { UserModel } from '../model/user-model';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-
-
+  userModel: UserModel | null = null;
   phoneNumber: any;
   reCaptchaVerifier!: any;
   confirmationResult!: ConfirmationResult;
   user: any;
   isLoggedIn = false;
 
+  errorCodeMessages: { [key: string]: string } = {
+    'auth/user-not-found': 'User not found with this email address',
+    'auth/wrong-password': 'Wrong Password. Please enter correct password.',
+    'auth/email-already-in-use': 'Email Address already used by another user. Please use different address.',
+    'auth/weak-password': 'Password should be at least 6 characters.',
+    'auth/invalid-email': 'Invalid Email Address',
+  }
+
   constructor(
     private auth: Auth,
     private router: Router,
     private firestore: Firestore,
     private db: Firestore,
-    // private afAuth: AngularFireAuth,
   ) {
-
-    // auth.onAuthStateChanged((user) => {
-    //   if (user !== null) {
-    //     // this.router.navigate(['/'])
-    //   } else {
-    //     // this.router.navigate(['/login'])
-    //   }
-    // })
-
-
+    onAuthStateChanged(auth, (user) => {
+      if (user !== null) {
+        console.log(">>> User is already signed");
+        this.fetchUserDetailsFromFirestore(user.uid);
+      } else {
+        console.log(">>> User is not sign in");
+        this.userModel = null;
+      }
+    }, (error) => {
+      console.log(error);
+    })
   }
+
+  loginUser({ email, password }: { email: string; password: string }): Promise<UserCredential> {
+    return new Promise((resolve, reject) => {
+      signInWithEmailAndPassword(this.auth, email, password)
+        .then((resp: UserCredential) => {
+          this.router.navigate(['/'])
+          this.fetchUserDetailsFromFirestore(resp.user.uid);
+          resolve(resp)
+        })
+        .catch((error) => reject(this.errorCodeMessages[error.code] ?? "Something went Wrong. Please Try Again..."))
+    })
+  }
+
+  registerUser({ name, email, password }: { name: string; password: string; email: string }): Promise<UserCredential> {
+    return new Promise((resolve, reject) => {
+      createUserWithEmailAndPassword(this.auth, email, password)
+        .then((resp: UserCredential) => {
+          this.router.navigate(['/'])
+          this.saveUserToFirestore({ name, email, password, authId: resp.user.uid })
+          resolve(resp)
+        })
+        .catch((error) => reject(this.errorCodeMessages[error.code] ?? "Something went Wrong. Please Try Again..."))
+    })
+  }
+
+  signoutCurrentUser() {
+    this.auth.signOut();
+  }
+
+  saveUserToFirestore({ name, email, authId, password }: { name: string, email: string, authId: string, password: string }) {
+    let userObj = {
+      name,
+      email,
+      authId,
+      password,
+      userId: doc(collection(this.firestore, "Admin-user")).id,
+      createdOn: Timestamp.now(),
+      active: true
+    }
+    let docRef = doc(this.firestore, `Admin-user/${userObj.userId}`);
+    setDoc(docRef, { ...userObj }, { merge: true })
+  }
+
+  fetchUserDetailsFromFirestore(authId: string) {
+    let queryRef = query(
+      collection(this.firestore, "Admin-user"),
+      where("authId", "==", authId)
+    )
+
+    const unsubscribe = onSnapshot(queryRef, (values) => {
+      if (values.docs.length === 0) {
+        // If user not found then there is no need snapshot 
+        // for viewing changes so we here unsubscribing the subscribe
+        unsubscribe();
+      } else {
+        this.userModel = { ...values.docs[0].data() as UserModel }
+      }
+    })
+  }
+
+
   listenForAuthStateChanges(): void {
     onAuthStateChanged(this.auth, (user) => {
       if (user) {
@@ -58,28 +126,10 @@ export class AuthService {
       // this.sendOtp();
       // this.isLoggedIn = true;
     } else {
-
-      // this.toastr.error('Number does not exist.', 'Warning')
       throw new Error("Number does not exist");
     }
 
   }
-
-  // sendOtp() {
-  //   this.verificationInProgress = true;
-  //   this.authService.sendOtp(this.phoneNumber)
-  //     .then((result) => {
-  //       console.log(result);
-  //       console.log('OTP sent successfully');
-  //       this.verificationInProgress = false
-  //       this.router.navigate(['/otp']);
-  //       this.active = 2;
-  //     })
-  //     .catch((error) => {
-  //       this.verificationInProgress = false
-  //       console.error('Error sending OTP:', error);
-  //     })
-  // }
 
   sendOtp(phoneNumber: string): Promise<any> {
     const appVerifier = new RecaptchaVerifier('recaptcha-container', {

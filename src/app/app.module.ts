@@ -15,7 +15,7 @@ import { ComponentsModule } from './components/components.module';
 import { getApp, initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from 'src/environments/environment';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { browserSessionPersistence, initializeAuth, provideAuth } from '@angular/fire/auth';
+import { browserSessionPersistence, getAuth, initializeAuth, provideAuth } from '@angular/fire/auth';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthService } from './Services/auth.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -28,12 +28,9 @@ import { ShippingComponent } from './pages/shipping/shipping.component';
 import { RefundComponent } from './pages/refund/refund.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { PricingComponent } from './pages/pricing/pricing.component';
+import { HomeComponent } from './pages/home/home.component';
+import { FaqComponent } from './components/faq/faq.component';
 import { FormsModule } from '@angular/forms';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { FooterComponent } from './components/footer/footer.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { AngularFireModule } from '@angular/fire';
-import {AngularFire} from "@angular/fire/auth"
 
 @NgModule({
   imports: [
@@ -43,18 +40,20 @@ import {AngularFire} from "@angular/fire/auth"
     NgbNavModule,
     HttpClientModule,
     MatSnackBarModule,
+    FormsModule,
     // NgOtpInputModule,
     ComponentsModule,
     RouterModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    FormsModule,
-    NgbModule,
-    AngularFirestoreModule
-
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => initializeAuth(getApp(), {
+      persistence: browserSessionPersistence
+    })),
+    provideAuth(() => getAuth()),
   ],
   declarations: [
-    AngularFireModule.initializeApp(environment.firebase),
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
@@ -65,8 +64,8 @@ import {AngularFire} from "@angular/fire/auth"
     RefundComponent,
     ContactUsComponent,
     PricingComponent,
-    FooterComponent,
-    NavbarComponent
+    HomeComponent,
+    FaqComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], 
   providers: [AuthService, DatePipe],
