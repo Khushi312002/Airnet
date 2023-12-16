@@ -7,6 +7,9 @@ import {
   animate,
   transition,
 } from "@angular/animations";
+import { PlansService } from "src/app/Services/plans/plans.service";
+import { PlanCheckoutService } from "src/app/Services/plan_checkout/plan-checkout.service";
+
 
 @Component({
   selector: "app-pricing",
@@ -26,11 +29,34 @@ import {
   ],
 })
 export class PricingComponent implements OnInit {
-  navigationToCheckout() {
-    this.router.navigate(["/Checkout"]);
+  
+  
+  constructor(private plansCheckoutService:PlanCheckoutService ,private router: Router,private planService:PlansService) {}
+ 
+  navigationToCheckout(event:any) {
+
+    this.router.navigate(["/dashboard"]);
+    // let price:number;
+
+    // console.log(event);
+    // if(event.target.value==='basic'){
+    //  price=5500
+    // }
+    // else if(event.target.value==='pro'){
+    //   price=10500;
+    // }
+    // const packageSelected={
+    //   package:event.target.value,  
+    //   price
+    // }
+
+    this.plansCheckoutService.makingPayment("free");
+    // this.planService.buyPlan(event.target.value);
+
+
+    // this.router.navigate(["/Checkout",packageSelected]);
   }
 
-  constructor(private router: Router) {}
   // Use properties to track the visibility of the answer
   isAnswerVisible1 = false;
   isAnswerVisible2 = false;

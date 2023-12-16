@@ -28,6 +28,7 @@
     color: #000;
     word-spacing: 15px;
     letter-spacing: 0.1px;
+    font-weight: 400;
   }
   .pricing-heading h3 {
     font-size: 19px;
@@ -46,7 +47,7 @@
   }
   .pricing-card {
     font-size: 15px;
-    height: 120px;
+    height: 140px;
     width: 230px;
     display: flex;
     text-align: center;
@@ -56,6 +57,7 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
+    gap: 5px;
   }
 
   .pricing-card h3 {
@@ -78,10 +80,10 @@
   }
   .pricing-block h2 {
     font-size: 20px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     text-align: center;
     color: #201d33;
-    font-weight: 600;
+    font-weight: 500;
   }
 
   .pricing-block h3 {
@@ -89,6 +91,7 @@
     color: #232121;
     font-weight: 400;
     text-transform: capitalize;
+    text-align: center;
   }
   .correct-img {
     height: 40px;
@@ -104,6 +107,20 @@
 
   .all-plans-smaller-screens {
     display: none;
+  }
+  .no-transition-tooltip {
+    transition: none !important;
+  }
+  
+  .iTooltip{
+    
+    height: 20px;
+    width: 15px;
+    background-color: #8080803b;
+     
+    &:hover{
+      transform: none;
+    }
   }
 }
 

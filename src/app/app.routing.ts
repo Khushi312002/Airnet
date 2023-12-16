@@ -17,6 +17,8 @@ import { RefundComponent } from './pages/refund/refund.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { PricingComponent } from './pages/pricing/pricing.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ItineraryComponent } from './pages/itinerary/itinerary.component';
 
 const routes: Routes = [
   {
@@ -54,6 +56,8 @@ const routes: Routes = [
   { path: 'about-us',      component: AboutUsComponent },
   { path: 'pricing',  component:PricingComponent},
   { path:'home',component:HomeComponent},
+  {path:"dashboard",component:DashboardComponent},
+  {path:"itinerary" , component:ItineraryComponent},
   {
     path: '**',
     redirectTo: 'home'

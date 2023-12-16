@@ -31,9 +31,13 @@ import { PricingComponent } from './pages/pricing/pricing.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { FormsModule } from '@angular/forms';
+import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { ItineraryComponent } from './pages/itinerary/itinerary.component';
+
 
 @NgModule({
   imports: [
+    NgbTooltipModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
@@ -66,6 +70,7 @@ import { FormsModule } from '@angular/forms';
     PricingComponent,
     HomeComponent,
     FaqComponent,
+    ItineraryComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], 
   providers: [AuthService, DatePipe],

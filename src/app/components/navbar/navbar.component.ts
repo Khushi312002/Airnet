@@ -9,15 +9,37 @@ import { AuthService } from 'src/app/Services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
+  uid:string | null=null;
+
   constructor(
     private router:Router,
     public authService: AuthService
     ) {
    
+        console.log(this.uid)
   }
 
   ngOnInit() {
-  
+    this.getUid();
+  }
+
+  async getUid(){
+
+    try{
+
+      this. uid=await this.authService.getUserUid();
+      console.log(this.uid);
+    }
+    catch(err){
+
+      console.log(err);
+    }
+
+  }
+
+  logout(){
+    this.uid=null;
+    this.authService.signoutCurrentUser();
   }
  
   // navigateToLogin(){

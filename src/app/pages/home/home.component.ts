@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PlansService } from 'src/app/Services/plans/plans.service';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +14,13 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/contact-us']);
   }
 
-  constructor(private router:Router) {
+  constructor(private router:Router,private plans:PlansService) {
     
    }
 
   ngOnInit(): void {
+
+   
   }
 
 }
