@@ -19,8 +19,9 @@
     margin: 18px 0;
   }
   .faq-question {
-    background-color: #0a0746;
+    background-color: #37395F;
     border-radius: 6px;
+    height: 70px;
     display: flex;
     align-items: center;
     gap: 20px;
@@ -42,7 +43,7 @@
   }
 
   .faq-answer {
-    background-color: #0a074682;
+    background-color: #8a8cc3;
     width: 96%;
     border-radius: 0 0 8px 8px;
     padding: 10px 15px;
