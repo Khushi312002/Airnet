@@ -47,7 +47,7 @@
   }
   .pricing-card {
     font-size: 15px;
-    height: 160px;
+    height: 140px;
     width: 230px;
     display: flex;
     text-align: center;
@@ -57,6 +57,7 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
+    gap: 5px;
   }
 
   .pricing-card h3 {
@@ -65,11 +66,8 @@
     line-height: 27px;
   }
   .pricing-card h5 {
-    color: #969696;
+    color: #2dce89;
     font-size: 12px;
-    padding: 0px;
-    padding-bottom: 5px;
-    padding-top: 0px;
   }
   .pricing-block {
     height: 100px;
@@ -101,20 +99,12 @@
   .cancel-img {
     height: 32px;
   }
+
   .buyNow-btn {
-    background-color: #FF5757!important;
-    color: white;
+    background-color: #bf7408 !important;
     border: none;
   }
-  .card-heading{
-    color:#37395F
-  }
-  .price-heading{
-    color: #FF5757;
-    font-size: 32px;
-    padding: 0px; 
-    margin: 0px;
-  }  
+
   .all-plans-smaller-screens {
     display: none;
   }
